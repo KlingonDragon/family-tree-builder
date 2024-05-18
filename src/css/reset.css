@@ -1,0 +1,74 @@
+*,
+*:before,
+*:after {
+    /* Reset box and size */
+    box-sizing: border-box;
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+    border: none;
+    outline: none;
+    /* Reset fonts */
+    font-family: sans-serif;
+    line-height: calc(1em + 0.5rem);
+    text-align: center;
+}
+
+/* Media defaults */
+img,
+picture,
+video,
+svg {
+    /* Default shape and size */
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    /* Show whole image */
+    object-fit: contain;
+    /* If img doesn't load, style alt text */
+    font-style: italic;
+}
+
+/* Input defaults */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+
+    &:focus-visible {
+        box-shadow: inset 0 0 0.0625rem 0.0625rem currentColor;
+    }
+}
+
+a,
+button,
+input[type=file],
+input[type=submit],
+select,
+::file-selector-button,
+summary {
+    cursor: pointer;
+}
+
+/* Table defaults */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    vertical-align: middle;
+}
+
+/* Text defaults */
+
+abbr {
+    cursor: help;
+    text-decoration: underline dotted currentColor;
+    text-underline-offset: 0.25rem;
+}
+
+a,
+abbr {
+    vertical-align: baseline;
+}

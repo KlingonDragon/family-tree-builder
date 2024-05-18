@@ -1,0 +1,67 @@
+body {
+    display: grid;
+    grid-template-areas:
+        "header aside"
+        "main aside"
+        "footer aside";
+    grid-template-columns: 1fr 0;
+    grid-template-rows: min-content 1fr min-content;
+
+    &:has(aside[data-open]) {
+        grid-template-columns: minmax(300px, 600px) 1fr;
+    }
+}
+
+main-container {
+    grid-area: main;
+    container: main-container/size;
+    display: grid;
+    grid-template: subgrid;
+}
+
+main {
+    display: grid;
+}
+
+@container main-container (orientation: landscape) {
+    main {
+        grid-template-areas:
+            "parents parents"
+            "person spouses"
+            "offspring offspring";
+        grid-template-columns: 2fr minmax(300px, 600px);
+        grid-template-rows: min-content 1fr min-content;
+    }
+}
+
+@container main-container (orientation: portrait) {
+    main {
+        grid-template-areas:
+            "parents"
+            "person"
+            "spouses"
+            "offspring";
+        grid-template-rows: min-content 1fr min-content min-content;
+    }
+}
+
+
+#parents {
+    grid-area: parents;
+}
+
+#person {
+    grid-area: person;
+}
+
+#spouses {
+    grid-area: spouses;
+}
+
+#offspring {
+    grid-area: offspring;
+}
+
+aside {
+    grid-area: aside;
+}
