@@ -64,4 +64,8 @@ main {
 
 aside {
     grid-area: aside;
+
+    &:not([data-open]) {
+        overflow: hidden;
+    }
 }
