@@ -1,6 +1,6 @@
-@import '/css/reset.css';
-@import '/css/colours.css';
-@import '/css/layout.css';
+@import 'css/reset.css';
+@import 'css/colours.css';
+@import 'css/layout.css';
 
 /* For testing */
 * {
