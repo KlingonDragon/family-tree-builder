@@ -32,9 +32,15 @@ HTMLElement.prototype.$$ = function (selectors) {
 };
 
 /**
+ * Nodes, Strings, and arrays of Nodes, Strings, and arrays of ...
+ * 
+ * @typedef {string | Node | NestedStringOrNodeArray[]} NestedStringOrNodeArray
+ */
+
+/**
  * Function to append items.
  * 
- * @param {...(string|Node)} nodes - The items to append.
+ * @param {...NestedStringOrNodeArray} nodes - The items to append.
  * 
  * @returns {this} The element on which it was called (can be used to chain appends).
  */
@@ -46,7 +52,7 @@ HTMLElement.prototype._ = function (...nodes) {
 /**
  * Alias for replaceChildren.
  * 
- * @param {...(string|Node)} nodes - The new children to replace the old.
+ * @param {...NestedStringOrNodeArray} nodes - The new children to replace the old.
  * 
  * @returns {this} The element on which it was called.
  */
@@ -54,7 +60,6 @@ HTMLElement.prototype.__ = function (...nodes) {
     this.replaceChildren(...nodes.filter(node => node !== undefined && node !== null));
     return this;
 };
-
 
 /**
  * Alias of addEventListener.

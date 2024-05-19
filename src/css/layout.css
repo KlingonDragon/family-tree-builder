@@ -8,7 +8,17 @@ body {
     grid-template-rows: min-content 1fr min-content;
 
     &:has(aside[data-open]) {
-        grid-template-columns: minmax(300px, 600px) 1fr;
+        @media (orientation: landscape) {
+            grid-template-columns: minmax(300px, 600px) 1fr;
+        }
+
+        @media (orientation: portrait) {
+            grid-template-columns: minmax(20px, 40px) 1fr;
+
+            & > :is(header, main-container, footer) {
+                overflow: hidden;
+            }
+        }
     }
 }
 
@@ -21,10 +31,8 @@ main-container {
 
 main {
     display: grid;
-}
 
-@container main-container (orientation: landscape) {
-    main {
+    @container main-container (orientation: landscape) {
         grid-template-areas:
             "parents parents"
             "person spouses"
@@ -32,18 +40,18 @@ main {
         grid-template-columns: 2fr minmax(300px, 600px);
         grid-template-rows: min-content 1fr min-content;
     }
-}
 
-@container main-container (orientation: portrait) {
-    main {
+    @container main-container (orientation: portrait) {
         grid-template-areas:
             "parents"
             "person"
             "spouses"
             "offspring";
         grid-template-rows: min-content 1fr min-content min-content;
+
     }
 }
+
 
 
 #parents {
