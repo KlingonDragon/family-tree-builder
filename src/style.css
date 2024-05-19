@@ -1,8 +1,33 @@
-@import 'css/reset.css';
-@import 'css/colours.css';
-@import 'css/layout.css';
+@layer base, generic, specific;
+@import 'css/reset.css' layer(base);
+@import 'css/colours.css' layer(base);
+@import 'css/layout.css' layer(base);
 
-/* For testing */
-* {
-    outline: 1px solid blue;
+@layer generic {
+    nav {
+        text-align: end;
+    }
+
+    button {
+        border: 0.125rem solid currentColor;
+        border-radius: 0.5rem;
+        padding: 0.25rem;
+        font-weight: bold;
+    }
+}
+
+@layer specific {
+    body > * {
+        padding: 0.25rem;
+    }
+
+    main {
+        gap: 0.5rem;
+
+        & > section {
+            border: 0.125rem solid currentColor;
+            border-radius: 0.5rem;
+            padding: 0.25rem;
+        }
+    }
 }

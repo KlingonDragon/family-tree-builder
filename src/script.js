@@ -1,7 +1,7 @@
 import './js/prototype.js';
+import './js/edit-person.js';
 import { $, _ } from './js/dom.js';
-const aside = $('aside');
+const aside = $('edit-person-aside');
 if (aside) {
-    $('footer')?._(_('button').on('click', () => aside.dataset.open = '')._('Open Aside'));
-    aside._(_('button').on('click', () => delete aside.dataset.open)._('Close Aside'));
+    $('footer')?.$('nav')?._(_('button').on('click', () => aside.open())._('Open Aside'));
 }
